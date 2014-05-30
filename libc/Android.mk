@@ -514,7 +514,7 @@ endif
 
 ifeq ($(TARGET_ARCH),arm)
   libc_common_cflags += -DSOFTFLOAT
-  libc_common_cflags += -fstrict-aliasing
+  libc_common_cflags += -fno-strict-aliasing
   libc_crt_target_cflags := -mthumb-interwork
 endif # !arm
 
@@ -533,7 +533,7 @@ ifeq ($(TARGET_ARCH),mips)
   ifneq ($(ARCH_MIPS_HAS_FPU),true)
     libc_common_cflags += -DSOFTFLOAT
   endif
-  libc_common_cflags += -fstrict-aliasing
+  libc_common_cflags += -fno-strict-aliasing
   libc_crt_target_cflags := $(TARGET_GLOBAL_CFLAGS)
 endif # mips
 
